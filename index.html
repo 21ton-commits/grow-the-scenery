@@ -2,10 +2,137 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="森の光の中で、小さな景色をゆっくり育てる。はじめてのWebサイトです。">
   <title>景色を育てる</title>
+  <style>
+    /* padding（内側の余白）も、指定した幅に含めます。 */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ページ全体：深い森の緑に、丸く広がる光を重ねます。 */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 32px 20px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse at 75% 0%, #a5b978 0%, transparent 55%),
+                  linear-gradient(155deg, #345e49, #132f2b);
+      color: #f7f5e8;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    }
+
+    /* 中央のパネル：スマホでは縮み、広い画面でも大きくなりすぎません。 */
+    main {
+      width: 100%;
+      max-width: 760px;
+      padding: 48px 28px 36px;
+      text-align: center;
+      background: #173e32;
+      border: 1px solid #71917a;
+      border-radius: 28px;
+      box-shadow: 0 24px 64px #10251f66;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: #d6dfb6;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .message {
+      margin: 0;
+      color: #e2e9d7;
+      font-size: 15px;
+      line-height: 2.2;
+    }
+
+    /* 小さな景色：丸い光と地面。画像ファイルは使いません。 */
+    .scenery {
+      position: relative;
+      width: 220px;
+      height: 170px;
+      margin: 28px auto;
+      border-bottom: 1px solid #9eb984;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 45%, #dce6a844, transparent 65%);
+    }
+
+    /* 茎を基準に、左右の葉を置きます。 */
+    .stem {
+      position: absolute;
+      bottom: 8px;
+      left: calc(50% - 2px);
+      width: 4px;
+      height: 66px;
+      border-radius: 4px;
+      background: #bad58e;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 46px;
+      height: 27px;
+      background: #c5dc91;
+    }
+
+    .leaf-left {
+      top: 8px;
+      right: 2px;
+      border-radius: 4px 30px 4px 30px;
+      transform: rotate(18deg);
+    }
+
+    .leaf-right {
+      top: -10px;
+      left: 2px;
+      border-radius: 30px 4px 30px 4px;
+      transform: rotate(-18deg);
+    }
+
+    .caption {
+      margin: 0;
+      color: #d6dfb6;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #496c56;
+      color: #c7d6c3;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+  </style>
 </head>
 <body>
-  <h1>景色を育てる 🌱</h1>
-  <p>はじめてのWebサイトです。</p>
+  <main>
+    <p class="eyebrow">小さな森の、はじまり</p>
+    <h1>景色を育てる 🌱</h1>
+    <p class="message">今日はどんな景色を育てようか？<br>光をひとつ。緑をひとつ。<br>わたしのペースで、少しずつ。</p>
+    <!-- 芽は飾りなので、読み上げでは省略します。 -->
+    <div class="scenery" aria-hidden="true">
+      <div class="stem">
+        <span class="leaf leaf-left"></span>
+        <span class="leaf leaf-right"></span>
+      </div>
+    </div>
+    <p class="caption">まだ小さな芽にも、光は届いている。</p>
+    <footer>はじめてのWebサイトです。</footer>
+  </main>
 </body>
 </html>
